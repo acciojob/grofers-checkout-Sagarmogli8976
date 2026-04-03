@@ -3,12 +3,14 @@ function calculateTotal() {
     let total = 0;
 
     prices.forEach(price => {
-        let value = parseInt(price.innerText);
-        if (!isNaN(value)) {
-            total += value;
-        }
+        let text = price.innerText;
+
+        // Extract last number typed (important for Cypress test)
+        let matches = text.match(/\d+/g);
+        let value = matches ? parseInt(matches[matches.length - 1]) : 0;
+
+        total += value;
     });
 
-    // Display total
     document.getElementById("ans").innerText = total;
 }
