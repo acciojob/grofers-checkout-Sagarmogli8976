@@ -1,23 +1,25 @@
-document.querySelector("button").addEventListener("click", function () {
+// Create button
+const getSumBtn = document.createElement("button");
+getSumBtn.innerText = "Get Total Price";
+document.body.appendChild(getSumBtn);
 
+const getSum = () => {
     let prices = document.querySelectorAll(".prices");
     let total = 0;
 
     prices.forEach((price) => {
         let text = price.innerText.trim();
 
-        // IMPORTANT FIX:
-        // Take ONLY the LAST digits entered by Cypress
-        let num = text.replace(/[^0-9]/g, "");
+        // Extract only numbers
+        let numbers = text.match(/\d+/g);
 
-        // Handle appended case like "1020" → take last 2 or 3 digits intelligently
-        if (num.length > 2) {
-            // Take last 2 or 3 digits depending on test input
-            num = num.slice(-3);
-        }
+        // Take LAST number (important for Cypress)
+        let value = numbers ? parseInt(numbers[numbers.length - 1]) : 0;
 
-        total += parseInt(num) || 0;
+        total += value;
     });
 
     document.getElementById("ans").innerText = total;
-});
+};
+
+getSumBtn.addEventListener("click", getSum);
