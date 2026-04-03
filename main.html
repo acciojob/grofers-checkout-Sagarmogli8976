@@ -1,37 +1,48 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>Grofers Checkout</title>
+    <title>Grofers Checkout</title>
 </head>
-
 <body>
 
-	<table border="1">
-		<tr>
-			<th>Item</th>
-			<th>Price</th>
-		</tr>
+<h2>Grocery List</h2>
 
-		<tr>
-			<td class="item">Rice</td>
-			<td class="prices">100</td>
-		</tr>
+<table border="1">
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+    </tr>
 
-		<tr>
-			<td class="item">Wheat</td>
-			<td class="prices">200</td>
-		</tr>
+    <tr>
+        <td class="item">Item 1</td>
+        <td class="prices">10</td>
+    </tr>
+    <tr>
+        <td class="item">Item 2</td>
+        <td class="prices">20</td>
+    </tr>
+    <tr>
+        <td class="item">Item 3</td>
+        <td class="prices">30</td>
+    </tr>
+    <tr>
+        <td class="item">Item 4</td>
+        <td class="prices">40</td>
+    </tr>
+    <tr>
+        <td class="item">Item 5</td>
+        <td class="prices">50</td>
+    </tr>
+</table>
 
-		<tr>
-			<td class="item">Sugar</td>
-			<td class="prices">50</td>
-		</tr>
+<br>
 
-	</table>
+<button onclick="calculateTotal()">Calculate Total</button>
 
-	<script src="script.js"></script>
+<!-- Result -->
+<h3 id="ans"></h3>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>

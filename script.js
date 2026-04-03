@@ -1,18 +1,14 @@
-let prices = document.querySelectorAll(".prices");
+function calculateTotal() {
+    let prices = document.querySelectorAll(".prices");
+    let total = 0;
 
-let total = 0;
+    prices.forEach(price => {
+        let value = parseInt(price.innerText);
+        if (!isNaN(value)) {
+            total += value;
+        }
+    });
 
-prices.forEach(function (price) {
-	total += Number(price.innerText);
-});
-
-let table = document.querySelector("table");
-
-let row = document.createElement("tr");
-
-let cell = document.createElement("td");
-cell.colSpan = 2;
-cell.innerText = total;
-
-row.appendChild(cell);
-table.appendChild(row);
+    // Display total
+    document.getElementById("ans").innerText = total;
+}
